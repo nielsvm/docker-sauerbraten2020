@@ -16,10 +16,6 @@ configure() {
   fi
 }
 
-# Docker allows portmapping and holds the external IP.
-SB_SERVERIP="127.0.0.1"
-SB_SERVERPORT="28785"
-
 # Check each and every ENV variable and rewrite config if set.
 configure serverdesc         "\"${SB_SERVERDESC}\""
 configure serverpass         "\"${SB_SERVERPASS}\""
@@ -27,8 +23,6 @@ configure adminpass          "\"${SB_ADMINPASS}\""
 configure serverauth         "\"${SB_SERVERAUTH}\""
 configure servermotd         "\"${SB_SERVERMOTD}\""
 configure maxclients         "${SB_MAXCLIENTS}"
-# configure serverip           "${SB_SERVERIP}"
-# configure serverport         "${SB_SERVERPORT}"
 configure serverbotlimit     "${SB_SERVERBOTLIMIT}"
 configure publicserver       "${SB_PUBLICSERVER}"
 configure updatemaster       "${SB_UPDATEMASTER}"

@@ -24,6 +24,7 @@ configure serverauth         "\"${SB_SERVERAUTH}\""
 configure servermotd         "\"${SB_SERVERMOTD}\""
 configure maxclients         "${SB_MAXCLIENTS}"
 configure serverip           "${SB_SERVERIP}"
+configure serverport         "${SB_SERVERPORT}"
 configure serverbotlimit     "${SB_SERVERBOTLIMIT}"
 configure publicserver       "${SB_PUBLICSERVER}"
 configure updatemaster       "${SB_UPDATEMASTER}"
@@ -39,5 +40,6 @@ configure overtime           "${SB_OVERTIME}"
 configure regenbluearmour    "${SB_REGENBLUEARMOUR}"
 
 # Change into the workdir so SB picks up $CONFIG.
+echo "docker-entrypoint.sh: `pwd`"
 cd $WORKDIR
 $SERVER

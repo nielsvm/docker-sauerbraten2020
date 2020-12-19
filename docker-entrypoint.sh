@@ -11,20 +11,21 @@ cp "$CONFIG.orig" "$CONFIG"
 # Define a helper to easily rewrite settings.
 configure() {
   if [ ${1} ] && [ "$(echo $2 | tr -d '"' )" ]; then
-    echo "SETTING -> ${1} \"${2}\""
-    sed -i -E "s;^(\/\/\s)?(${1}).*;\2 \"${2}\";" "${CONFIG}"
+    echo "SETTING -> ${1} ${2}"
+    sed -i -E "s;^(\/\/\s)?(${1}).*;\2 ${2};" "${CONFIG}"
   fi
 }
 
-# Fixate the port, since a Docker portmap can be used to change it.
-SB_SERVERPORT=28785
+# Docker allows portmapping and holds the external IP.
+SB_SERVERIP="127.0.0.1"
+SB_SERVERPORT="28785"
 
 # Check each and every ENV variable and rewrite config if set.
-configure serverdesc         "${SB_SERVERDESC}"
-configure serverpass         "${SB_SERVERPASS}"
-configure adminpass          "${SB_ADMINPASS}"
-configure serverauth         "${SB_SERVERAUTH}"
-configure servermotd         "${SB_SERVERMOTD}"
+configure serverdesc         "\"${SB_SERVERDESC}\""
+configure serverpass         "\"${SB_SERVERPASS}\""
+configure adminpass          "\"${SB_ADMINPASS}\""
+configure serverauth         "\"${SB_SERVERAUTH}\""
+configure servermotd         "\"${SB_SERVERMOTD}\""
 configure maxclients         "${SB_MAXCLIENTS}"
 configure serverip           "${SB_SERVERIP}"
 configure serverport         "${SB_SERVERPORT}"
@@ -42,7 +43,6 @@ configure persistteams       "${SB_PERSISTTEAMS}"
 configure overtime           "${SB_OVERTIME}"
 configure regenbluearmour    "${SB_REGENBLUEARMOUR}"
 
-sleep 500
 # Change into the workdir so SB picks up $CONFIG.
 cd $WORKDIR
 $SERVER

@@ -12,7 +12,6 @@ RUN apt-get update \
     && apt-get clean
 
 RUN wget -qO /usr/local/sauerbraten.tar.bz2 "https://downloads.sourceforge.net/project/sauerbraten/sauerbraten/2020_11_29/sauerbraten_2020_12_04_linux.tar.bz2?ts=1467054652&use_mirror=deac-ams"
-# COPY sauerbraten.tar.bz2 /usr/local/sauerbraten.tar.bz2
 
 RUN  cd /usr/local/ \
      && tar xvjf /usr/local/sauerbraten.tar.bz2 \
@@ -20,14 +19,12 @@ RUN  cd /usr/local/ \
      && rm -rf /usr/local/sauerbraten/packages/* \
      && chown -R root:root /usr/local/sauerbraten
 
-# apt install dumb-init
-# RUN wget -qO /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.1.1/dumb-init_1.1.1_amd64 \
-# && chmod +x /usr/local/bin/dumb-init
-
 VOLUME /root/.sauerbraten/
 
 WORKDIR /usr/local/sauerbraten
 
+RUN cp server-init.cfg server-init.cfg.orig
+
 EXPOSE 28785/udp 28785/tcp
 
-CMD [ "/usr/local/sauerbraten/bin_unix/linux_64_server" ]
+ENTRYPOINT [ "docker-entrypoint.sh" ]

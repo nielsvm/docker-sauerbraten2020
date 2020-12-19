@@ -22,7 +22,7 @@ RUN  cd /usr/local/ \
 
 # apt install dumb-init
 # RUN wget -qO /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.1.1/dumb-init_1.1.1_amd64 \
- && chmod +x /usr/local/bin/dumb-init
+# && chmod +x /usr/local/bin/dumb-init
 
 VOLUME /root/.sauerbraten/
 

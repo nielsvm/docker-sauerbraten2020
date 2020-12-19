@@ -26,10 +26,8 @@ RUN  cd /usr/local/ \
 
 VOLUME /root/.sauerbraten/
 
-RUN ls -l /usr/local/sauerbraten
-RUN ls -l /root/.sauerbraten/
-RUN du -hs /usr/local/sauerbraten
-RUN ls -l /usr/local/sauerbraten/bin_unix/linux_server
+RUN ls -lA /usr/local/sauerbraten
+RUN ls -lA /root/.sauerbraten/
 
 WORKDIR /usr/local/sauerbraten
 

@@ -1,6 +1,5 @@
 FROM ubuntu:latest
 
-ENV SB_SERVERPORT 28785
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
@@ -20,12 +19,10 @@ RUN  cd /usr/local/ \
      && rm -rf /sb/packages/* \
      && chown -R root:root /sb
 
-VOLUME /root/.sauerbraten/
-
 COPY docker-entrypoint.sh /sb/docker-entrypoint.sh
 
 RUN cp /sb/server-init.cfg /sb/server-init.cfg.orig
 
-EXPOSE $SB_SERVERPORT/udp $SB_SERVERPORT/tcp
+EXPOSE 28785/udp 28785/tcp
 
 ENTRYPOINT [ "/sb/docker-entrypoint.sh" ]

@@ -16,6 +16,9 @@ configure() {
   fi
 }
 
+# Fixate the port, since a Docker portmap can be used to change it.
+SB_SERVERPORT=28785
+
 # Check each and every ENV variable and rewrite config if set.
 configure serverdesc         "\"${SB_SERVERDESC}\""
 configure serverpass         "\"${SB_SERVERPASS}\""

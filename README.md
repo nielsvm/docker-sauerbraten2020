@@ -14,7 +14,7 @@ SB_PUBLICSERVER=0
 SB_UPDATEMASTER=0
 ```
 
-See [`docker-entrypoint.sh`](docker-entrypoint.sh) and [`server-init.cfg`](https://sourceforge.net/p/sauerbraten/code/HEAD/tree/server-init.cfg) for all the variables and settings you can configure. Some variables aren't accessible though pull requests are welcome.
+See [`docker-entrypoint.sh`](https://github.com/nielsvm/docker-sauerbraten2020/blob/main/docker-entrypoint.sh) and [`server-init.cfg`](https://sourceforge.net/p/sauerbraten/code/HEAD/tree/server-init.cfg) for all the variables and settings you can configure. Some variables aren't accessible though pull requests are welcome.
 
 **Note:** The default port is `28785`, use a portmap to change it.
 

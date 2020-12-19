@@ -11,13 +11,12 @@ RUN apt-get update \
     zlib1g \
     && apt-get clean
 
-RUN wget -qO /sb.tar.bz2 "https://downloads.sourceforge.net/project/sauerbraten/sauerbraten/2020_11_29/sauerbraten_2020_12_04_linux.tar.bz2?ts=1467054652&use_mirror=netcologne"
-
-RUN  cd / \
-     && tar xvjf /sb.tar.bz2 \
-     && rm /sb.tar.bz2 \
-     && rm -rf /sauerbraten/packages/* \
-     && chown -R root:root /sauerbraten
+RUN wget -qO /sb.tar.bz2 "https://downloads.sourceforge.net/project/sauerbraten/sauerbraten/2020_11_29/sauerbraten_2020_12_04_linux.tar.bz2?ts=1467054652&use_mirror=netcologne" \
+    && cd / \
+    && tar xvjf /sb.tar.bz2 --exclude="packages" \
+    && rm /sb.tar.bz2 \
+    && rm -rf /sauerbraten/packages \
+    && chown -R root:root /sauerbraten
 
 COPY docker-entrypoint.sh /sauerbraten/docker-entrypoint.sh
 

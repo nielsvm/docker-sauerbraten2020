@@ -17,7 +17,7 @@ RUN  cd / \
      && tar xvjf /sb.tar.bz2 \
      && rm /sb.tar.bz2 \
      && rm -rf /sauerbraten/packages/* \
-     && chown -R root:root /sb
+     && chown -R root:root /sauerbraten
 
 COPY docker-entrypoint.sh /sauerbraten/docker-entrypoint.sh
 

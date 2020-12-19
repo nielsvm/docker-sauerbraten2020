@@ -19,7 +19,21 @@ See [`docker-entrypoint.sh`](docker-entrypoint.sh) and [`server-init.cfg`](https
 
 **Note:** you can't set the port, use a Docker portmap to `28785` instead.
 
-### Caprover usage
+### Docker
+
+The image for this `Dockerfile` is hosted [hub.docker.com](https://hub.docker.com/r/nielsvm/sauerbraten2020) and can be pulled as follows:
+
+```
+docker pull nielsvm/sauerbraten2020
+```
+
+Now run the image as follows:
+
+```
+docker run --name sb -p 28785:28785/udp -p 28785:28785/tcp -it nielsvm/sauerbraten2020
+```
+
+### Caprover
 
 This repository works as-is on top of your [Caprover](https://caprover.com/)
 instance, just clone this repository and run:

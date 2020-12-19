@@ -28,8 +28,8 @@ VOLUME /root/.sauerbraten/
 
 RUN ls -l /usr/local/sauerbraten
 RUN ls -l /root/.sauerbraten/
-RUN df -h
-RUN file /usr/local/sauerbraten/bin_unix/linux_server
+RUN du -hs /
+RUN ls -l /usr/local/sauerbraten/bin_unix/linux_server
 
 WORKDIR /usr/local/sauerbraten
 

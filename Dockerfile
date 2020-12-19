@@ -26,8 +26,13 @@ RUN  cd /usr/local/ \
 
 VOLUME /root/.sauerbraten/
 
+RUN ls -l /usr/local/sauerbraten
+RUN ls -l /root/.sauerbraten/
+RUN df -h
+RUN file /usr/local/sauerbraten/bin_unix/linux_server
+
 WORKDIR /usr/local/sauerbraten
 
 EXPOSE 28785/udp 28785/tcp
 
-CMD [ "bin_unix/linux_server", "-d" ]
+CMD [ "/usr/local/sauerbraten/bin_unix/linux_server", "-d" ]

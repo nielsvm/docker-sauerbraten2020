@@ -10,7 +10,7 @@ cp "$CONFIG.orig" "$CONFIG"
 
 # Define a helper to easily rewrite settings.
 configure() {
-  if [ ${1} ] && [ ${2} ]; then
+  if [ ${1} ] && [ "$(echo $2 | tr -d '"' )" ]; then
     echo "SETTING -> ${1} \"${2}\""
     sed -i -E "s;^(\/\/\s)?(${1}).*;\2 \"${2}\";" "${CONFIG}"
   fi

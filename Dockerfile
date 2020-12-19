@@ -24,4 +24,6 @@ RUN cp /sauerbraten/server-init.cfg /sauerbraten/server-init.cfg.orig
 
 EXPOSE 28785/udp 28785/tcp
 
+RUN ls -l /sauerbraten
+
 ENTRYPOINT [ "/sauerbraten/docker-entrypoint.sh" ]

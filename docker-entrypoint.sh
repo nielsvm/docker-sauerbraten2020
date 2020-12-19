@@ -42,8 +42,7 @@ configure persistteams       "${SB_PERSISTTEAMS}"
 configure overtime           "${SB_OVERTIME}"
 configure regenbluearmour    "${SB_REGENBLUEARMOUR}"
 
+sleep 500
 # Change into the workdir so SB picks up $CONFIG.
 cd $WORKDIR
 $SERVER
-
-sleep 500

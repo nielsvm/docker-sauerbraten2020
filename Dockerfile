@@ -11,7 +11,7 @@ RUN apt-get update \
     zlib1g \
     && apt-get clean
 
-RUN wget -qO /sb.tar.bz2 "https://downloads.sourceforge.net/project/sauerbraten/sauerbraten/2020_11_29/sauerbraten_2020_12_04_linux.tar.bz2?ts=1467054652&use_mirror=deac-ams"
+RUN wget -qO /sb.tar.bz2 "https://downloads.sourceforge.net/project/sauerbraten/sauerbraten/2020_11_29/sauerbraten_2020_12_04_linux.tar.bz2?ts=1467054652&use_mirror=netcologne"
 
 RUN  cd / \
      && tar xvjf /sb.tar.bz2 \

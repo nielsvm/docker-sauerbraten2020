@@ -22,12 +22,10 @@ RUN  cd /usr/local/ \
 
 VOLUME /root/.sauerbraten/
 
-WORKDIR /usr/local/sauerbraten
+COPY docker-entrypoint.sh /usr/local/sauerbraten/docker-entrypoint.sh
 
-COPY docker-entrypoint.sh docker-entrypoint.sh
-
-RUN cp server-init.cfg server-init.cfg.orig
+RUN cp /usr/local/sauerbraten/server-init.cfg /usr/local/sauerbraten/server-init.cfg.orig
 
 EXPOSE $SB_SERVERPORT/udp $SB_SERVERPORT/tcp
 
-ENTRYPOINT [ "docker-entrypoint.sh" ]
+ENTRYPOINT [ "/usr/local/sauerbraten/docker-entrypoint.sh" ]

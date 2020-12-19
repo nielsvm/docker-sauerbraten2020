@@ -12,20 +12,20 @@ RUN apt-get update \
     zlib1g \
     && apt-get clean
 
-RUN wget -qO /usr/local/sauerbraten.tar.bz2 "https://downloads.sourceforge.net/project/sauerbraten/sauerbraten/2020_11_29/sauerbraten_2020_12_04_linux.tar.bz2?ts=1467054652&use_mirror=deac-ams"
+RUN wget -qO /sb.tar.bz2 "https://downloads.sourceforge.net/project/sauerbraten/sauerbraten/2020_11_29/sauerbraten_2020_12_04_linux.tar.bz2?ts=1467054652&use_mirror=deac-ams"
 
 RUN  cd /usr/local/ \
-     && tar xvjf /usr/local/sauerbraten.tar.bz2 \
-     && rm /usr/local/sauerbraten.tar.bz2 \
-     && rm -rf /usr/local/sauerbraten/packages/* \
-     && chown -R root:root /usr/local/sauerbraten
+     && tar xvjf /sb.tar.bz2 \
+     && rm /sb.tar.bz2 \
+     && rm -rf /sb/packages/* \
+     && chown -R root:root /sb
 
 VOLUME /root/.sauerbraten/
 
-COPY docker-entrypoint.sh /usr/local/sauerbraten/docker-entrypoint.sh
+COPY docker-entrypoint.sh /sb/docker-entrypoint.sh
 
-RUN cp /usr/local/sauerbraten/server-init.cfg /usr/local/sauerbraten/server-init.cfg.orig
+RUN cp /sb/server-init.cfg /sb/server-init.cfg.orig
 
 EXPOSE $SB_SERVERPORT/udp $SB_SERVERPORT/tcp
 
-ENTRYPOINT [ "/usr/local/sauerbraten/docker-entrypoint.sh" ]
+ENTRYPOINT [ "/sb/docker-entrypoint.sh" ]

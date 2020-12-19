@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-WORKDIR="/usr/local/sauerbraten"
+WORKDIR="/sb"
 SERVER="$WORKDIR/bin_unix/linux_64_server"
 CONFIG="$WORKDIR/server-init.cfg"
 
@@ -40,6 +40,6 @@ configure overtime           "${SB_OVERTIME}"
 configure regenbluearmour    "${SB_REGENBLUEARMOUR}"
 
 # Change into the workdir so SB picks up $CONFIG.
-echo "docker-entrypoint.sh: `pwd`"
 cd $WORKDIR
+echo "docker-entrypoint.sh: `pwd`"
 $SERVER

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-WORKDIR="/sb"
+WORKDIR="/sauerbraten"
 SERVER="$WORKDIR/bin_unix/linux_64_server"
 CONFIG="$WORKDIR/server-init.cfg"
 

@@ -18,3 +18,14 @@ SB_UPDATEMASTER=0
 See [`docker-entrypoint.sh`](docker-entrypoint.sh) and [`server-init.cfg`](https://sourceforge.net/p/sauerbraten/code/HEAD/tree/server-init.cfg) for all the variables and settings you can configure. Some variables aren't accessible though pull requests are welcome.
 
 **Note:** you can't set the port, use a Docker portmap to `28785` instead.
+
+### Caprover usage
+
+This repository works as-is on top of your [Caprover](https://caprover.com/)
+instance, just clone this repository and run:
+
+```
+caprover deploy
+```
+
+Please note that the image building takes a while!

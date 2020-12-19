@@ -30,4 +30,4 @@ RUN cp server-init.cfg server-init.cfg.orig
 
 EXPOSE $SB_SERVERPORT/udp $SB_SERVERPORT/tcp
 
-CMD [ "docker-entrypoint.sh" ]
+ENTRYPOINT [ "docker-entrypoint.sh" ]

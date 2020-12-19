@@ -10,9 +10,9 @@ cp "$CONFIG.orig" "$CONFIG"
 
 # Define a helper to easily rewrite settings.
 configure() {
-  if [ ${1} ] && [ "$(echo $2 | tr -d '"' )" ]; then
-    echo "SETTING -> ${1} ${2}"
-    sed -i -E "s;^(\/\/\s)?(${1}).*;\2 ${2};" "${CONFIG}"
+  if [ ${1} ] && [ ${2} ]; then
+    echo "SETTING -> ${1} \"${2}\""
+    sed -i -E "s;^(\/\/\s)?(${1}).*;\2 \"${2}\";" "${CONFIG}"
   fi
 }
 
@@ -20,14 +20,14 @@ configure() {
 SB_SERVERPORT=28785
 
 # Check each and every ENV variable and rewrite config if set.
-configure serverdesc         "\"${SB_SERVERDESC}\""
-configure serverpass         "\"${SB_SERVERPASS}\""
-configure adminpass          "\"${SB_ADMINPASS}\""
-configure serverauth         "\"${SB_SERVERAUTH}\""
-configure servermotd         "\"${SB_SERVERMOTD}\""
-configure maxclients         "\"${SB_MAXCLIENTS}\""
-configure serverip           "\"${SB_SERVERIP}\""
-configure serverport         "\"${SB_SERVERPORT}\""
+configure serverdesc         "${SB_SERVERDESC}"
+configure serverpass         "${SB_SERVERPASS}"
+configure adminpass          "${SB_ADMINPASS}"
+configure serverauth         "${SB_SERVERAUTH}"
+configure servermotd         "${SB_SERVERMOTD}"
+configure maxclients         "${SB_MAXCLIENTS}"
+configure serverip           "${SB_SERVERIP}"
+configure serverport         "${SB_SERVERPORT}"
 configure serverbotlimit     "${SB_SERVERBOTLIMIT}"
 configure publicserver       "${SB_PUBLICSERVER}"
 configure updatemaster       "${SB_UPDATEMASTER}"

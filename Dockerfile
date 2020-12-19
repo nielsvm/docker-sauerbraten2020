@@ -24,6 +24,8 @@ VOLUME /root/.sauerbraten/
 
 WORKDIR /usr/local/sauerbraten
 
+COPY docker-entrypoint.sh docker-entrypoint.sh
+
 RUN cp server-init.cfg server-init.cfg.orig
 
 EXPOSE $SB_SERVERPORT/udp $SB_SERVERPORT/tcp

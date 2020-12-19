@@ -44,5 +44,4 @@ configure regenbluearmour    "${SB_REGENBLUEARMOUR}"
 
 # Change into the workdir so SB picks up $CONFIG.
 cd $WORKDIR
-echo "docker-entrypoint.sh: `pwd`"
 $SERVER

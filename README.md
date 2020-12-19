@@ -1,6 +1,6 @@
 # docker-sauerbraten server (2020)
 
-Disk-optimized [Sauerbraten](http://sauerbraten.org/) **game server** container shipping the recent 2020 edition. While the build process downloads the entire package 985.8 MB large package, the game assets are removed directly after package extraction keeping the image footprint small. The built image on Docker Hub is thus kept very small.
+Disk-optimized [Sauerbraten](http://sauerbraten.org/) **game server** container shipping the recent 2020 edition. While the build process downloads the entire package 985.8 MB large package, the game assets are removed directly after package extraction keeping the image footprint small. The built image on Docker Hub is thus only ~60Mb and kept very small.
 
 ### Configuration
 
@@ -8,8 +8,8 @@ The container can be configured through environment variables:
 
 ```
 SB_SERVERPASS="SecretPassw0rd
-SB_SERVERDESC="Welcome to my server"
-SB_SERVERMOTD="Server rules: 1) don't kill anyone"
+SB_SERVERDESC="My docker-sauerbraten server"
+SB_SERVERMOTD="Rules: 1) don't shoot 2) don't kill 3) say hi"
 SB_PUBLICSERVER=0
 SB_UPDATEMASTER=0
 ```
@@ -24,12 +24,6 @@ The image for this `Dockerfile` is hosted [hub.docker.com](https://hub.docker.co
 
 ```
 docker pull nielsvm/sauerbraten2020
-```
-
-Now run the image as follows:
-
-```
-docker run --name sb -p 28785:28785/udp -p 28785:28785/tcp -it nielsvm/sauerbraten2020
 ```
 
 ### Caprover
